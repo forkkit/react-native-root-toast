@@ -23,7 +23,8 @@ declare module "react-native-root-toast"{
         onHide?: Function,
         onHidden?: Function,
         onShow?: Function,
-        onShown?: Function
+        onShown?: Function,
+        customLayout?: Function
     }
 
     export interface ToastProps extends ToastOptions,ReactNative.ViewProperties{
@@ -39,11 +40,11 @@ declare module "react-native-root-toast"{
         CENTER:number,
     }
     export default class Toast extends React.Component<ToastProps>{
-        static show:(message:string,options?:ToastOptions)=>any;
+        static show:(message:string,options:ToastOptions)=>any;
         static hide:(toast:any)=>void;
         static durations:Durations;
         static positions:Positions;
     }
-
-    export class ToastContainer extends React.Component<ToastProps> {}
 }
+
+
