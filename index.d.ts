@@ -6,6 +6,11 @@ declare module "react-native-root-toast"{
     import * as React from 'react';
     import * as ReactNative from "react-native";
     import {TextStyle,StyleProp,ViewStyle} from "react-native";
+    
+    export class RootSibling {
+        constructor(element: any, callback: Function, store: any)
+    }
+    
     export interface ToastOptions {
         containerStyle?:StyleProp<ViewStyle>
         duration?:number
@@ -27,8 +32,7 @@ declare module "react-native-root-toast"{
         customLayout?: Function
     }
 
-    export interface ToastProps extends ToastOptions,ReactNative.ViewProperties{
-    }
+    export interface ToastProps extends ToastOptions,ReactNative.ViewProperties{}
 
     export interface Durations {
         LONG:number,
@@ -39,7 +43,8 @@ declare module "react-native-root-toast"{
         BOTTOM:number,
         CENTER:number,
     }
-    export default class Toast extends React.Component<ToastProps>{
+    
+    export class Toast extends React.Component<ToastProps>{
         static show:(message:string,options:ToastOptions)=>any;
         static hide:(toast:any)=>void;
         static durations:Durations;
