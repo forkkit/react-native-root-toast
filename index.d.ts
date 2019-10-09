@@ -7,7 +7,7 @@ declare module "react-native-root-toast"{
     import * as ReactNative from "react-native";
     import {TextStyle,StyleProp,ViewStyle} from "react-native";
     
-    export class RootSibling {
+    export class RootSiblings {
         constructor(element: any, callback: Function, store: any)
     }
     
