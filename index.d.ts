@@ -1,3 +1,5 @@
+import { ToastOptions } from "react-native-root-toast";
+
 /**
  * typescript definition
  * @author wallel
@@ -6,11 +8,6 @@ declare module "react-native-root-toast"{
     import * as React from 'react';
     import * as ReactNative from "react-native";
     import {TextStyle,StyleProp,ViewStyle} from "react-native";
-    
-    export class RootSiblings {
-        constructor(element: any, callback: Function, store: any)
-    }
-    
     export interface ToastOptions {
         containerStyle?:StyleProp<ViewStyle>
         duration?:number
@@ -31,9 +28,14 @@ declare module "react-native-root-toast"{
         onShown?: Function,
         customLayout?: Function
     }
-
+    
+    export interface CustomToastOptions {
+        style?: StyleProp<ViewStyle>
+        props?: any
+    }
+    
     export interface ToastProps extends ToastOptions,ReactNative.ViewProperties{}
-
+    
     export interface Durations {
         LONG:number,
         SHORT:number
@@ -43,9 +45,9 @@ declare module "react-native-root-toast"{
         BOTTOM:number,
         CENTER:number,
     }
-    
-    export class Toast extends React.Component<ToastProps>{
-        static show:(message:string,options:ToastOptions)=>any;
+    export default class Toast extends React.Component<ToastProps>{
+        static showCustom:(elem:any, options:CustomToastOptions)=>any;
+        static show:(message:string, options:ToastOptions)=>any;
         static hide:(toast:any)=>void;
         static durations:Durations;
         static positions:Positions;
